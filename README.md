@@ -56,57 +56,57 @@ The code is divided into several packages, each responsible for a different aspe
     To allow for easier and more accurate use of the turret, the turret could be controlled [relative to the field](src/main/java/com/team254/frc2019/subsystems/Superstructure.java#L220-L246), which uses the robot's gyro heading to turn to cardinal directions. 
 
 ## Package Functions
-- [`com.team254.frc2019`](src/main/java/com/team254/frc2019)
+- [`com.team254.frc2022`](src/main/java/com/team254/frc2022)
 
-    Contains the robot's central functions and holds a class with all numerical constants used throughout the code (see [`Constants.java`](src/main/java/com/team254/frc2019/Constants.java)). For example, the [`Robot`](src/main/java/com/team254/frc2019/Robot.java) class controls all routines depending on the robot mode. In addition, the [`RobotState`](src/main/java/com/team254/frc2019/RobotState.java) class keeps track of the current position of the robot's various frames of reference.
+    Contains the robot's central functions and holds a class with all numerical constants used throughout the code (see [`Constants.java`](src/main/java/com/team254/frc2022/Constants.java)). For example, the [`Robot`](src/main/java/com/team254/frc2022/Robot.java) class controls all routines depending on the robot mode. In addition, the [`RobotState`](src/main/java/com/team254/frc2022/RobotState.java) class keeps track of the current position of the robot's various frames of reference.
 
-- [`com.team254.frc2019.auto`](src/main/java/com/team254/frc2019/auto)
+- [`com.team254.frc2022.auto`](src/main/java/com/team254/frc2022/auto)
 
-    Handles the execution of autonomous routines and contains the [`actions`](src/main/java/com/team254/frc2019/auto/actions) and [`modes`](src/main/java/com/team254/frc2019/auto/modes) packages.
+    Handles the execution of autonomous routines and contains the [`actions`](src/main/java/com/team254/frc2022/auto/actions) and [`modes`](src/main/java/com/team254/frc2022/auto/modes) packages.
 
-- [`com.team254.frc2019.auto.actions`](src/main/java/com/team254/frc2019/auto/actions)
+- [`com.team254.frc2022.auto.actions`](src/main/java/com/team254/frc2022/auto/actions)
 
-    Contains all actions used during the autonomous period, which all share a common interface, [`Action`](src/main/java/com/team254/frc2019/auto/actions/Action.java) (also in this package). Examples include driving paths, auto aiming the turret and scoring, and auto steering. Actions interact with the subsystems, which in turn interact with the hardware.
+    Contains all actions used during the autonomous period, which all share a common interface, [`Action`](src/main/java/com/team254/frc2022/auto/actions/Action.java) (also in this package). Examples include driving paths, auto aiming the turret, and deploying and retracting intakes. Actions interact with the subsystems, which in turn interact with the hardware.
 
-- [`com.team254.frc2019.auto.modes`](src/main/java/com/team254/frc2019/auto/modes)
+- [`com.team254.frc2022.auto.modes`](src/main/java/com/team254/frc2022/auto/modes)
 
     Contains all autonomous modes. Autonomous modes consist of a list of autonomous actions executed in a specific order.
 
-- [`com.team254.frc2019.controlboard`](src/main/java/com/team254/frc2019/controlboard)
+- [`com.team254.frc2022.controlboard`](src/main/java/com/team254/frc2022/controlboard)
 
-    Contains code for the driver to use either joysticks or gamepad and the operator to use a gamepad. Also contains a wrapper class specifically for Xbox controllers (see [XboxController.java](src/main/java/com/team254/frc2019/controlboard/XboxController.java)).
+    Contains code for the driver to use either joysticks or gamepad and the operator to use a gamepad. Also contains a wrapper class specifically for Xbox controllers (see [XboxController.java](src/main/java/com/team254/frc2022/controlboard/XboxController.java)).
 
-- [`com.team254.frc2019.loops`](src/main/java/com/team254/frc2019/loops)
+- [`com.team254.frc2022.loops`](src/main/java/com/team254/frc2022/loops)
 
-    Contains codes for loops, which are routines that run periodically on the robot, such as for calculating robot pose, processing vision feedback, or updating subsystems. All loops implement the [`Loop`](src/main/java/com/team254/frc2019/loops/Loop.java) interface and are handled (started, stopped, added) by the [`Looper`](src/main/java/com/team254/frc2019/loops/Looper.java) class, which runs at 100 Hz. The [`Robot`](src/main/java/com/team254/frc2019/Robot.java) class has one main looper, `mEnabledLooper`, that runs all loops when the robot is enabled.
+    Contains codes for loops, which are routines that run periodically on the robot, such as for calculating robot pose, processing vision feedback, or updating subsystems. All loops implement the [`Loop`](src/main/java/com/team254/frc2022/loops/Loop.java) interface and are handled (started, stopped, added) by the [`Looper`](src/main/java/com/team254/frc2022/loops/Looper.java) class, which runs at 100 Hz. The [`Robot`](src/main/java/com/team254/frc2022/Robot.java) class has one main looper, `mEnabledLooper`, that runs all loops when the robot is enabled.
 
-- [`com.team254.frc2019.paths`](src/main/java/com/team254/frc2019/paths)
+- [`com.team254.frc2022.paths`](src/main/java/com/team254/frc2022/paths)
 
-    Contains all paths that the robot drives during autonomous mode. Each path is made up of a list of `Waypoint` objects. The [`PathBuilder`](src/main/java/com/team254/frc2019/paths/PathBuilder.java) class, which is also included in this package, transforms these waypoints into a series of `Arc` and `Line` objects.
+    Contains the [`TrajectoryGenerator`](src/main/java/com/team254/frc2022/paths/TrajectoryGenerator.java) class which contains the trajectories that the robot drives during autonomous mode. Each `Trajectory` is composed of a list of `Waypoint` objects and headings.
 
-- [`com.team254.frc2019.planners`](src/main/java/com/team254/frc2019/planners)
+- [`com.team254.frc2022.planners`](src/main/java/com/team254/frc2019/planners)
 
-    Contains various planners for superstructure motion to avoid superstructure collisions with itself or the drivebase.
+    Contains the [`DriveMotionPlanner`](src/main/java/com/team254/frc2022/planners/DriveMotionPlanner.java) class which controls the drivebase as it follows a trajectory during the autonomous period.
 
-- [`com.team254.frc2019.statemachines`](src/main/java/com/team254/frc2019/statemachines)
+- [`com.team254.frc2022.shooting`](src/main/java/com/team254/frc2022/shooting)
 
-    Contains the state machines for the end effector, overall superstructure, and two climbing mechanisms.
+    Contains the [`ShootingUtil`](src/main/java/com/team254/frc2022/shooting/ShootingUtil.java) helper class which takes in the current target range and robot state and returns parameters for an ideal shot for both stationary and shooting on the move.
 
-- [`com.team254.frc2019.states`](src/main/java/com/team254/frc2019/states)
+- [`com.team254.frc2022.states`](src/main/java/com/team254/frc2022/states)
 
-    Contains states and other classes used in various subsystem and state machine classes.
+    Contains multiple classes representing LED states used in the [`Superstructure`](src/main/java/com/team254/frc2022/subsystems/Superstructure.java) class. 
 
-- [`com.team254.frc2019.subsystems`](src/main/java/com/team254/frc2019/subsystems)
+- [`com.team254.frc2022.subsystems`](src/main/java/com/team254/frc2022/subsystems)
 
-    Contains code for subsystems, which are consolidated into one central class per subsystem, all of which extend the [`Subsystem`](src/main/java/com/team254/frc2019/subsystems/Subsystem.java) abstract class. Each subsystem uses state machines for control and is a singleton, meaning that there is only one instance of each. Subsystems also contain an enabled loop, a read periodic inputs method, and a write periodic outputs method, which are controlled by the [`SubystemManager`](src/main/java/com/team254/frc2019/SubsystemManager.java) class.
+    Contains code for subsystems, which are consolidated into one central class per subsystem, all of which extend the [`Subsystem`](src/main/java/com/team254/lib/drivers/Subsystem.java) abstract class. Each subsystem uses state machines for control and is a singleton, meaning that there is only one instance of each. Subsystems also contain an enabled loop, a read periodic inputs method, and a write periodic outputs method, which are controlled by the [`SubystemManager`](src/main/java/com/team254/frc2022/SubsystemManager.java) class.
 
 - [`com.team254.lib.control`](src/main/java/com/team254/lib/control)
 
-    Contains all the classes used for the robot's path following. The robot's steering is controlled by the [`AdaptivePurePursuitController`](src/main/java/com/team254/lib/control/AdaptivePurePursuitController.java) class.
+    Contains classes used for the robot's path following and alternative teleoperated driver modes.
 
 - [`com.team254.lib.drivers`](src/main/java/com/team254/lib/drivers)
 
-    Contains a set of custom classes for motor controllers (TalonSRX's and Spark MAX's) that include classes for creating motor controllers with factory default settings, handling errors, reducing CAN Bus usage, and checking motors.
+    Constains a set of custom classes for motor controllers, color sensors, and solenoids for simplifying motor configuration, reducing CAN Bus usage, and checking motors. 
 
 - [`com.team254.lib.geometry`](src/main/java/com/team254/lib/geometry)
 
@@ -118,7 +118,23 @@ The code is divided into several packages, each responsible for a different aspe
 
 - [`com.team254.lib.physics`](src/main/java/com/team254/lib/physics)
 
-    Contains the [`DriveCharacterization`](src/main/java/com/team254/lib/physics/DriveCharacterization.java) class which represents the characterization for specifically a differential drivetrain. While this class did not end up being used during this season, it differs from 2018, so is being released, nonetheless.
+    Contains classes to represent physical states of a swerve drive, a swerve's effective wheelbase, and a DC motor.
+
+- [`com.team254.lib.spline`](src/main/java/com/team254/lib/spline)
+
+    Contains classes to generate and time parameterize splines for smooth autonomous paths.
+
+- [`com.team254.lib.swerve`](src/main/java/com/team254/lib/swerve)
+
+    Contains various drive controllers and classes used for forward and inverse kinematics. 
+
+- [`com.team254.lib.trajectory`](src/main/java/com/team254/lib/trajectory)
+
+    Contains multiple classes used for representing and following [`Trajectory`](src/main/java/com/team254/lib/trajectory/Trajectory/java) objects.
+
+- [`com.team254.lib.trajectory.timing`](src/main/java/com/team254/lib/trajectory/timing)
+
+    Contains multiple classes for generating time-parameterized trajectories that obey physical robot constraints.
 
 - [`com.team254.lib.util`](src/main/java/com/team254/lib/util)
 
@@ -133,5 +149,5 @@ The code is divided into several packages, each responsible for a different aspe
     Contains parent classes of the main [`Robot`](src/main/java/com/team254/frc2019/Robot.java) class that get rid of loop overrun and watchdog print messages that clutter the console.
 	
 ## Variable Naming Conventions
-- k*** (i.e. `kDriveWheelTrackWidthInches`): Final constants, especially those found in the [`Constants.java`](src/main/java/com/team254/frc2019/Constants.java) file
+- k*** (i.e. `kDriveWheelbaseMeters`): Final constants, especially those found in the [`Constants.java`](src/main/java/com/team254/frc2022/Constants.java) file
 - m*** (i.e. `mPathFollower`): Private instance variables
