@@ -33,7 +33,7 @@ The code is divided into several packages, each responsible for a different aspe
 ## Code Highlights
 * Field-Centric Swerve Drive
 
-    Standard [field-centric control of a swerve drivebase](src/main/java/com/team254/frc2022/subsystems/Drive.java) using odometry, encoders and gyro along with [Swerve Setpoint Generation](src/main/java/com/team254/lib/swerve/SwerveSetpointGenerator.java) to impose Kinematic constraints on the drivebase for more controlled movements to reduce with less wheel-slip and improve Shoot-On-The-Move.
+    Standard [field-centric control of a swerve drivebase](src/main/java/com/team254/frc2022/subsystems/Drive.java) using odometry, encoders and gyro along with [Swerve Setpoint Generation](src/main/java/com/team254/lib/swerve/SwerveSetpointGenerator.java) to impose Kinematic constraints on the drivebase for more controlled movements to reduce wheel-slip and improve Shoot-On-The-Move.
 
 * Superstructure with Two-Sided Intake, Automatic Wrong Ball Rejection, Super Eject, Automatic Turret Tracking
 
