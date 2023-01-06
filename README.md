@@ -35,9 +35,9 @@ The code is divided into several packages, each responsible for a different aspe
 
     Standard [field-centric control of a swerve drivebase](src/main/java/com/team254/frc2022/subsystems/Drive.java) using odometry, encoders and gyro along with [Swerve Setpoint Generation](src/main/java/com/team254/lib/swerve/SwerveSetpointGenerator.java) to impose Kinematic constraints on the drivebase for more controlled movements to reduce with less wheel-slip and improve Shoot-On-The-Move.
 
-* Superstructure with Two-Sided Intake, Automatic Wrong Ball Rejection, Super Eject
+* Superstructure with Two-Sided Intake, Automatic Wrong Ball Rejection, Super Eject, Automatic Turret Tracking
 
-    The robot uses a [state machine](src/main/java/com/team254/frc2022/subsystems/Serializer.java) to control the intakes and serializers on both sides of the robot. It uses banner sensors to determine the locations of the ball in the robot and [REV Color Sensors wired to a Teensy](Teensy4-RevSensor/Teensy4-RevSensor.ino) to determine ball color. After detecting a wrong color ball, the robot determines the [eject setpoints based on its position and orientation on the field](src/main/java/com/team254/frc2022/subsystems/Superstructure.java#L369-502).
+    The robot uses a [state machine](src/main/java/com/team254/frc2022/subsystems/Serializer.java) to control the intakes and serializers on both sides of the robot. It uses banner sensors to determine the locations of the ball in the robot and [REV Color Sensors wired to a Teensy](Teensy4-RevSensor/Teensy4-RevSensor.ino) to determine ball color. After detecting a wrong color ball, the robot determines the [eject setpoints based on its position and orientation on the field](src/main/java/com/team254/frc2022/subsystems/Superstructure.java#L369-502). Throughout the match, the robot always follows the vision target with the turret using [Motion Profiling](src/main/java/com/team254/lib/drivers/ServoMotorSubsystem.java#L463-475).
 
 * Shooting on the Move
     
