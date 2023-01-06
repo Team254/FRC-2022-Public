@@ -1,6 +1,6 @@
 # FRC-2022
 
-Team 254's 2019 FRC robot code for [Sideways](https://www.team254.com/first/2022/). Sideways' code is written in Java and is based off of WPILib's Java control system.
+Team 254's 2022 FRC robot code for [Sideways](https://www.team254.com/first/2022/). Sideways' code is written in Java and is based off of WPILib's Java control system.
 
 The code is divided into several packages, each responsible for a different aspect of the robot function. This README explains setup instructions, the function of each package, and some of the variable naming conventions used. Additional information about each specific class can be found in that class' Java file.
 
