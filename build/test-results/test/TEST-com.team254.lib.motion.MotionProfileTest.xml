@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.team254.lib.motion.MotionProfileTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-01-06T00:16:49" hostname="C02YX0C2LVDT" time="0.005">
+  <properties/>
+  <testcase name="trimBeforeTime" classname="com.team254.lib.motion.MotionProfileTest" time="0.002"/>
+  <testcase name="appendProfile" classname="com.team254.lib.motion.MotionProfileTest" time="0.0"/>
+  <testcase name="firstStateByPos" classname="com.team254.lib.motion.MotionProfileTest" time="0.0"/>
+  <testcase name="smoke" classname="com.team254.lib.motion.MotionProfileTest" time="0.0"/>
+  <testcase name="appendControl" classname="com.team254.lib.motion.MotionProfileTest" time="0.0"/>
+  <testcase name="stateByTime" classname="com.team254.lib.motion.MotionProfileTest" time="0.0"/>
+  <testcase name="appendSegment" classname="com.team254.lib.motion.MotionProfileTest" time="0.0"/>
+  <testcase name="isValid" classname="com.team254.lib.motion.MotionProfileTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Segments not continuous! End: (t=6.0, pos=4.0, vel=0.0, acc=-1.0), Start: (t=3.0, pos=2.0, vel=0.0, acc=1.0)
+Segment acceleration not constant! Start acc: 0.0, End acc: 1.0
+Segment not consistent! Start: (t=0.0, pos=0.0, vel=0.0, acc=1.0), End: (t=1.0, pos=0.0, vel=1.0, acc=1.0)
+]]></system-err>
+</testsuite>

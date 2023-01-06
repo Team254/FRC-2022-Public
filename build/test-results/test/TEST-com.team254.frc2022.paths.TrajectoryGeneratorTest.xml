@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.team254.frc2022.paths.TrajectoryGeneratorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-06T00:16:48" hostname="C02YX0C2LVDT" time="1.322">
+  <properties/>
+  <testcase name="testGenerateTrajectories" classname="com.team254.frc2022.paths.TrajectoryGeneratorTest" time="1.322"/>
+  <system-out><![CDATA[Generating trajectories...
+Finished trajectory generation
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

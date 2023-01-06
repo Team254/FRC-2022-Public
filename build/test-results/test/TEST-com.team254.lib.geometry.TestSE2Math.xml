@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.team254.lib.geometry.TestSE2Math" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-01-06T00:16:49" hostname="C02YX0C2LVDT" time="0.002">
+  <properties/>
+  <testcase name="testTranslation2d" classname="com.team254.lib.geometry.TestSE2Math" time="0.001"/>
+  <testcase name="testTwist" classname="com.team254.lib.geometry.TestSE2Math" time="0.0"/>
+  <testcase name="testRotation2d" classname="com.team254.lib.geometry.TestSE2Math" time="0.0"/>
+  <testcase name="testPose2d" classname="com.team254.lib.geometry.TestSE2Math" time="0.001"/>
+  <system-out><![CDATA[-Infinity
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

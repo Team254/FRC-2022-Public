@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.team254.lib.motion.MotionProfileGeneratorTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-01-06T00:16:49" hostname="C02YX0C2LVDT" time="0.045">
+  <properties/>
+  <testcase name="testStationaryToStationary" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.033"/>
+  <testcase name="problematicCase1" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <testcase name="testMovingAwayToStationary" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <testcase name="testMovingTowardsToMoving" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.002"/>
+  <testcase name="testStationaryToMoving" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <testcase name="testMovingTowardsToStationary" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.002"/>
+  <testcase name="testLinearTimeVaryingGoal" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <testcase name="testAlreadyFinished" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <testcase name="testAsymmetricVelocityLimits" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <testcase name="testMovingAwayToMoving" classname="com.team254.lib.motion.MotionProfileGeneratorTest" time="0.001"/>
+  <system-out><![CDATA[Profile:
+	Start: (t=0.0, pos=0.0, vel=0.0, acc=25.0), End: (t=2.0, pos=50.0, vel=50.0, acc=25.0)
+	Start: (t=2.0, pos=50.0, vel=50.0, acc=0.0), End: (t=4.0, pos=150.0, vel=50.0, acc=0.0)
+	Start: (t=4.0, pos=150.0, vel=50.0, acc=-25.0), End: (t=6.0, pos=200.0, vel=0.0, acc=-25.0)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

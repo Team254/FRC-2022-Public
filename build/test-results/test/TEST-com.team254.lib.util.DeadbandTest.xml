@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.team254.lib.util.DeadbandTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-06T00:16:50" hostname="C02YX0C2LVDT" time="0.0">
+  <properties/>
+  <testcase name="testInDeadband" classname="com.team254.lib.util.DeadbandTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

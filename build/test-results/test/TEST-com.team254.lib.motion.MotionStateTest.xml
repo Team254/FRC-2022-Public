@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.team254.lib.motion.MotionStateTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-01-06T00:16:49" hostname="C02YX0C2LVDT" time="0.001">
+  <properties/>
+  <testcase name="nextTimeAtPosConstantVelocity" classname="com.team254.lib.motion.MotionStateTest" time="0.0"/>
+  <testcase name="extrapolateConstantAccel" classname="com.team254.lib.motion.MotionStateTest" time="0.0"/>
+  <testcase name="nextTimeAtPosStationary" classname="com.team254.lib.motion.MotionStateTest" time="0.0"/>
+  <testcase name="nextTimeAtPosConstantAccel" classname="com.team254.lib.motion.MotionStateTest" time="0.0"/>
+  <testcase name="equals" classname="com.team254.lib.motion.MotionStateTest" time="0.001"/>
+  <testcase name="flipped" classname="com.team254.lib.motion.MotionStateTest" time="0.0"/>
+  <testcase name="extrapolateConstantVelocity" classname="com.team254.lib.motion.MotionStateTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
