@@ -31,29 +31,25 @@ The code is divided into several packages, each responsible for a different aspe
 * Run `./gradlew test` to run all of the JUnit tests
 
 ## Code Highlights
-* Path following with an adaptive pure pursuit controller and motion profiling
+* Field-Centric Swerve Drive
 
-    To control autonomous driving, the robot utilizes an [adaptive pure pursuit controller](src/main/java/com/team254/lib/control/AdaptivePurePursuitController.java) to control steering and a custom trapezoidal motion profile [generator](src/main/java/com/team254/lib/motion/MotionProfileGenerator.java) and [follower](src/main/java/com/team254/lib/motion/ProfileFollower.java) to control velocity.
+    Standard [field-centric control of a swerve drivebase](src/main/java/com/team254/frc2022/subsystems/Drive.java) using odometry, encoders and gyro along with [Swerve Setpoint Generation](src/main/java/com/team254/lib/swerve/SwerveSetpointGenerator.java) to impose Kinematic constraints on the drivebase for more controlled movements to reduce with less wheel-slip and improve Shoot-On-The-Move.
 
-* Motion planner that constrains superstructure motion to within the frame perimeter
+* Superstructure with Two-Sided Intake, Automatic Wrong Ball Rejection, Super Eject
 
-    To keep the superstructure within the frame perimeter during movements that may be dangerous, the robot follows a [tuck motion planner](src/main/java/com/team254/frc2019/planners/TuckPlanner.java), named because it tucks the wrist down before moving the rest of the superstructure, until it is safe to untuck.
+    The robot uses a [state machine](src/main/java/com/team254/frc2022/subsystems/Serializer.java) to control the intakes and serializers on both sides of the robot. It uses banner sensors to determine the locations of the ball in the robot and [REV Color Sensors wired to a Teensy](Teensy4-RevSensor/Teensy4-RevSensor.ino) to determine ball color. After detecting a wrong color ball, the robot determines the [eject setpoints based on its position and orientation on the field](src/main/java/com/team254/frc2022/subsystems/Superstructure.java#L369-502).
 
-* Limelight-based vision system for target detection
+* Shooting on the Move
+    
+    The robot uses a [Sin Map](src/main/java/com/team254/frc2022/subsystems/Superstructure.java#L354-361) (Utilizing Trigonometry for both Shooter RPM and Hood Angle). We break Shooter RPM into a horizontal and vertical component and use a linear regression to map the robot's distance from goal to a Shooter RPM. To compensate for motion, the robot calculates a [feedforward based on its tangential and radial velocity about the goal](src/main/java/com/team254/frc2022/shooting/ShootingUtil.java#L26-57).
 
-    The robot used 2 Limelights, toggled through a [manager class](src/main/java/com/team254/frc2019/subsystems/LimelightManager.java), to find and track vision targets. Information about targets were used to [auto steer](src/main/java/com/team254/frc2019/subsystems/Drive.java#L303-L322) the robot towards vision targets through a P feedback loop, which was used mainly for driving to the loading station, or to [auto aim the turret](src/main/java/com/team254/frc2019/subsystems/Superstructure.java#L256-L310) for scoring on the rockets and cargo ship.
+* Feedforward + Proportional Feedback Controller for Autonomous Path Following
 
-* Prismatic superstructure motion to mimic a linear actuator
+    The robot generates pre-computed trajectories using a [Quintic Hermite Spline](https://github.com/Team254/FRC-2022-Public/blob/main/src/main/java/com/team254/lib/spline/SplineGenerator.java). To follow trajectories, the robot is first commanded the [precomputed velocity at the current timestamp](src/main/java/com/team254/frc2022/planners/DriveMotionPlanner.java#L302-326). It then computes the longitudinal error along the path and uses a [proportional controller](src/main/java/com/team254/frc2022/planners/DriveMotionPlanner.java#L187-200) to reduce it. The robot time-parametrizes heading based on the total timing of the trajectory and uses a separate proportional controller to reach heading setpoints.
+    
+* Fully Automated Climb
 
-    The robot used the vision system to identify the scoring position, and synchronized the arm and elevator motion to move the end effector forward, while maintaining the same wrist angle and height. This allowed the robot to [score](src/main/java/com/team254/frc2019/statemachines/SuperstructureCommands.java#L60-L117) over defenders.
-
-* Suction climbing through a state machine
-
-    The robot's suction climbing mechanism at the FIRST Championship in Houston was controlled through a [state machine](src/main/java/com/team254/frc2019/statemachines/SuctionClimbingStateMachine.java), that regulated each step of the climbing process. The suction was created through a [vacuum](src/main/java/com/team254/frc2019/subsystems/Vacuum.java) with feedback about the pressure provided through a digital pressure switch.
-
-* Field relative turret
-
-    To allow for easier and more accurate use of the turret, the turret could be controlled [relative to the field](src/main/java/com/team254/frc2019/subsystems/Superstructure.java#L220-L246), which uses the robot's gyro heading to turn to cardinal directions. 
+    The robot uses a [state machine for the endgame climb](src/main/java/com/team254/frc2022/subsystems/Climber.java) to move mechanisms in a controlled fashion. Transitions between states are determined using encoder positions, time in state, and gyro measurements.
 
 ## Package Functions
 - [`com.team254.frc2022`](src/main/java/com/team254/frc2022)
